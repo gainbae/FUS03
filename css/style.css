@@ -2,6 +2,15 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css';
 @import 'fonts.css';
 
+/* Box-Sizing 기본값 변경 */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
 /* 링크 스타일  */
 
 a {
@@ -26,6 +35,7 @@ body {
 .header {
     background: #432219;
     padding: 2rem;
+    position: relative;
 }
 
 
@@ -36,11 +46,111 @@ body {
 }
 
 
-/* 메인메뉴 */
+/* 메인 메뉴 제어 버튼 */
 
-.main-menu {
+.menubar-container {
+    background: blue;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-menubar {
+    background: red;
+    border: 0;
+    padding: 40px 0 0 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.menubar {
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    left: 0;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menubar-top {
+    top: 0;
+}
+
+.menubar-middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menubar-bottom {
+    bottom: 0;
+}
+
+
+/* 메인 메뉴 */
+
+
+/* .main-menu {
     margin: 0;
     padding: 0;
     list-style: none;
     color: #fff;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    display: flex;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.main-menu-act {
+    height: 50px ! important;
+    color: blue;
+    background: yellow;
+}
+
+.main-menu li {
+    width: 25%;
+    font-size: 2rem;
+    font-family: 'Noto Sans Bold';
+    text-align: center;
+    padding: 1rem 0;
+} */
+
+
+/* OffCanvas 방식 */
+
+.main-menu {
+    list-style: none;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: -10rem;
+    top: 0;
+    margin: 0;
+    width: 0vw;
+    height: 100vh;
+    font-size: 2rem;
+    padding: 5rem;
+    font-family: 'Noto Sans Bold', sans-serif;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+.main-menu-act {
+    left: 0;
+    width: 70vw;
+}
+
+.main-menu li {
+    margin-bottom: 2rem;
+}
+
+.main-menu a {
+    display: block;
 }
